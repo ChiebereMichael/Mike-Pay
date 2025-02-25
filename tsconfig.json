@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "components/MyPortfolio.jsx", "components/MyAssets.jsx", "app/(tabs)/More.jsx", "app/(tabs)/index.jsx", "app/(tabs)/Assets.jsx", "app/(tabs)/Market.jsx"  ]
+, "components/MyPortfolio.jsx", "components/MyAssets.jsx", "app/(tabs)/More.jsx", "app/(tabs)/index.jsx", "app/(tabs)/Assets.jsx", "app/(tabs)/Market.jsx", "app/(tabs)/P2p.jsx"  ]
 }

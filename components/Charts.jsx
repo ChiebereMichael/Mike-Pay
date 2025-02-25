@@ -1,44 +1,50 @@
-import { StyleSheet, Text, View, Dimensions } from 'react-native'
-import React from 'react'
-import { LineChart } from "react-native-chart-kit"; // 📊 Import Chart Kit
+import React from 'react';
+import { View, Dimensions ,StyleSheet} from 'react-native';
+import { LineChart, BarChart, PieChart } from 'react-native-chart-kit';
 
 const Charts = () => {
+  const screenWidth = Dimensions.get('window').width;
+  
+  const data = {
+    labels: ['1H', '1D', '1W', '1M', '1Y', 'All'],
+    datasets: [{
+      data: [178.40, 156.18, 133.97, 111.75, 89.54, 43],
+    }],
+  };
+
   return (
-    <View>
-       <Text style={styles.chartTitle}>Bitcoin Price (Last 7 Days)</Text>
-        <LineChart
-          data={{
-            labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
-            datasets: [{ data: chartData }],
-          }}
-          width={Dimensions.get("window").width - 20}
-          height={220}
-          yAxisLabel="$"
-          chartConfig={{
-            backgroundColor: "#fff",
-            backgroundGradientFrom: "#222",
-            backgroundGradientTo: "#111",
-            decimalPlaces: 2,
-            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-            style: { borderRadius: 16 },
-            propsForDots: { r: "4", strokeWidth: "2", stroke: "#fff" },
-          }}
-          bezier
-          style={{ marginVertical: 10, borderRadius: 10 }}
-        />
+    <View style={styles.container}>
+      <LineChart
+        data={data}
+        width={screenWidth - 40}
+        height={250}
+        chartConfig={{
+          backgroundColor: '#ffffff',
+          backgroundGradientFrom: '#ffffff',
+          backgroundGradientTo: '#ffffff',
+          decimalPlaces: 0,
+          color: (opacity = 1) => `rgba(50, 30, 255, ${opacity})`,
+          labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+          style: {
+            borderRadius: 16,
+          },
+        }}
+        bezier
+        style={{
+          marginVertical: 8,
+          borderRadius: 16,
+        }}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default Charts
-
+export default Charts;
 const styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        // backgroundColor: "#000",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    chartTitle: { color: "#fff", fontSize: 18, fontWeight: "bold", marginTop: 20 },
+  container:{
+    // flex:1,
+    // backgroundColor:'#000',
+    paddingHorizontal:10,
+    paddingTop:50,
+  }
 })

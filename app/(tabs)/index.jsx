@@ -4,9 +4,11 @@ import React, { useState } from 'react';
 import { Ionicons } from "@expo/vector-icons";
 import CryptoPrice from "@/components/Card";
 import MyPortfolio from "@/components/MyPortfolio"
+import { useNavigation } from "expo-router";
 const profile = require("@/assets/images/avatar.png");
 
 export default function Index() {
+  const navigation = useNavigation();
   const dark = {
     container: {
       backgroundColor: "#000", 
@@ -23,7 +25,7 @@ export default function Index() {
     <View style={[styles.container, dark.container]}>
       <View style={styles.head}>
         <Image source={profile} style={styles.image} />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('More')}>
           <Ionicons
             name={"notifications-outline"} 
             size={34}
@@ -50,7 +52,7 @@ export default function Index() {
       </View>
 
       <View style={styles.act}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("P2p")}>
           <Ionicons
             name="arrow-up"
             size={30}
@@ -61,7 +63,7 @@ export default function Index() {
             color={dark.iconColor}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("P2p")}>
           <Ionicons
             name="arrow-down"
             size={30}
@@ -72,7 +74,7 @@ export default function Index() {
             color={dark.iconColor}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('P2p')}>
           <Ionicons
             name="swap-horizontal-outline"
             size={30}
@@ -89,7 +91,7 @@ export default function Index() {
         <Text style={[styles.pin, { color: dark.textColor }]}>
           Pinned Portfolio
         </Text>
-        <TouchableOpacity style={styles.blu}>
+        <TouchableOpacity style={styles.blu} onPress={() => navigation.navigate("Assets")}>
           <Text style={[styles.whi, { color: dark.buttonColor }]}>
             View All
           </Text>

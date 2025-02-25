@@ -36,7 +36,12 @@ const Market = () => {
           <Text style={styles.vol}>$60.2b</Text>
         </View>
       </View>
+      <View style={styles.line}></View>
       <Charts />
+      <View style={styles.flex1}>
+        <Text style={styles.h2}>MIN $86.21</Text>
+        <Text style={styles.h2}>MAX $137.88$</Text>
+      </View>
     </View>
   );
 };
@@ -80,8 +85,14 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     marginTop:30,
-    marginLeft:10,
-    marginRight:20,
+    marginHorizontal:20
+  },
+  line:{
+    borderWidth:1,
+    borderColor:'gray',
+    width:'90%',
+    alignSelf:'center',
+    marginTop:30
   },
   bit: {
     fontSize: 20,
@@ -106,4 +117,15 @@ const styles = StyleSheet.create({
     borderColor:'#008AC3',
     alignItems: "flex-start",
   },
+  flex1:{
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginTop:30,
+    marginHorizontal:20
+  },
+  h2:{
+    fontSize:12,
+    color:'gray'
+  }
 });
