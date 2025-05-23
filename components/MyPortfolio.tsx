@@ -2,7 +2,7 @@ import { StyleSheet, ScrollView, Text, View, Image } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { Ionicons } from "@expo/vector-icons";
 
-const MyAssets = () => {
+const MyPortfolio = () => {
   const dark = {
     container: { backgroundColor: "#000" },
     textColor: "#fff",
@@ -41,7 +41,8 @@ const MyAssets = () => {
 
   return (
     <View style={[styles.container, dark.container]}>
-      <ScrollView>
+      <Text style={styles.h1}>My Portfolio</Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {cryptoData.map((coin, index) => (
           <View key={index} style={styles.flex}>
             <View style={styles.flex2}>
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
   flex3: { flexDirection: 'column' },
   flex4: { flexDirection: 'column', alignItems: 'flex-end' },
   flex5: { display: 'flex', flexDirection: 'row', alignItems: 'center' },
+  h1: { color: '#fff', fontWeight: 'bold', fontSize: 20 },
   h3: { fontSize: 14, marginLeft: 5 },
   btc: { fontSize: 15, fontWeight: 'bold' },
   image: { width: 35, height: 35, borderRadius: 50, marginRight: 10 },
@@ -79,4 +81,4 @@ const styles = StyleSheet.create({
   par1: { fontSize: 15, color: 'gray' },
 });
 
-export default MyAssets;
+export default MyPortfolio;

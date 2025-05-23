@@ -1,27 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet,View } from 'react-native';
-import {Image} from 'expo-image'
-// import Carousel from 'react-native-snap-carousel';
+import { Text, StyleSheet, View, ViewStyle, TextStyle, ImageStyle } from 'react-native';
+import { Image } from 'expo-image'
 import { Ionicons } from '@expo/vector-icons';
+
+interface CryptoPrices {
+  bitcoin?: { usd: number };
+  ethereum?: { usd: number };
+  solana?: { usd: number };
+}
+
+interface Styles {
+  container: ViewStyle;
+  change: ViewStyle;
+  flex: ViewStyle;
+  dis: ViewStyle;
+  btc: TextStyle;
+  bit: TextStyle;
+  fall: TextStyle;
+  image: ImageStyle;
+}
+
 const btc = require('@/assets/images/btc2.jpg');
 
 const CryptoPrice = () => {
-  const [btcPrice, setBtcPrice] = useState(null);
-  const [ethPrice, setEthPrice] = useState(null);
-  const [solanaprice, setSolanaprice] = useState(null);
+  const [btcPrice, setBtcPrice] = useState<number | null>(null);
+  const [ethPrice, setEthPrice] = useState<number | null>(null);
+  const [solanaprice, setSolanaprice] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCryptoPrices = async () => {
       try {
         const response = await fetch(
-          'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd'
+          'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd'
         );
-        const data = await response.json();
-        setBtcPrice(data.bitcoin.usd);
-        setEthPrice(data.ethereum.usd);
-        setSolanaprice(data.solana.usd)
+        const data: CryptoPrices = await response.json();
+        
+        setBtcPrice(data.bitcoin?.usd ?? null);
+        setEthPrice(data.ethereum?.usd ?? null);
+        setSolanaprice(data.solana?.usd ?? null);
       } catch (error) {
         console.error('Error fetching prices:', error);
+        setError(error instanceof Error ? error.message : 'Failed to fetch prices');
       }
     };
 
@@ -48,7 +68,8 @@ const CryptoPrice = () => {
         </View>
   );
 };
-const styles = StyleSheet.create({
+
+const styles = StyleSheet.create<Styles>({
     container:{
     backgroundColor:'#008AC3',
     borderRadius:15,

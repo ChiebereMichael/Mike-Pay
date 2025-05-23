@@ -37,7 +37,7 @@ export default function TabLayout() {
         }}
       />
        <Tabs.Screen
-        name="Assets"
+        name="assets"
         options={{
           title: 'My Assets',
           tabBarIcon: ({ color, focused }) => (
@@ -46,16 +46,16 @@ export default function TabLayout() {
         }}
       />
        <Tabs.Screen
-        name="P2p"
+        name="p2p"
         options={{
-          title: 'P2p',
+          title: 'p2p',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'swap-horizontal-outline' : 'swap-horizontal-outline'} color={color} size={24} />
           ),
         }}
       />
       <Tabs.Screen
-        name="Market"
+        name="market"
         options={{
           title: 'Market',
           tabBarIcon: ({ color, focused }) => (
@@ -64,7 +64,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-      name='More'
+      name='more'
       options={{
         title:'More',
         tabBarIcon:({color, focused})=>(

@@ -1,10 +1,34 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, ViewStyle, TextStyle, ImageStyle, ImageSourcePropType } from "react-native";
 import React from "react";
-// import { Ionicons } from "@expo/vector-icons";
-const bitcoin = require("@/assets/images/btc2.jpg");
+
+// Import image
+const bitcoin: ImageSourcePropType = require("@/assets/images/btc2.jpg");
+
+interface Theme {
+  textColor: string;
+  textColor2: string;
+  cardBackground: string;
+  buttonColor: string;
+  iconBackground: string;
+  iconColor: string;
+}
+
+interface Styles {
+  container: ViewStyle;
+  flex: ViewStyle;
+  flex2: ViewStyle;
+  flex3: ViewStyle;
+  flex4: ViewStyle;
+  flex5: ViewStyle;
+  h3: TextStyle;
+  btc: TextStyle;
+  image: ImageStyle;
+  par: TextStyle;
+  par1: TextStyle;
+}
 
 const BalanceContainer = () => {
-  const dark = {
+  const dark: Theme = {
     textColor: "#fff",
     textColor2: "darkgray",
     cardBackground: "#f4f4f4",
@@ -29,7 +53,7 @@ const BalanceContainer = () => {
           <Text style={[styles.btc, { color: dark.textColor }]}>
             $0.0000013
           </Text>
-          <View style={styles.flex5}>
+          <View >
             <Text style={[styles.h3, { color: dark.textColor2 }]}>$23.56</Text>
           </View>
         </View>
@@ -40,7 +64,6 @@ const BalanceContainer = () => {
 
 const styles = StyleSheet.create({
   container: {
-    //  flex: 1,
     backgroundColor: '#282828',
     paddingVertical: 8,
     marginVertical: 10,
@@ -48,10 +71,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   flex: {
-    display: "flex",
-    paddingTop: 15,
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingTop: 15,
   },
   flex2: { display: "flex", flexDirection: "row", alignItems: "center" },
   flex3: { flexDirection: "column" },
