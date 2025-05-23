@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import MyAssets from '@/components/MyAssets';
 
 const Assets = () => {
-  const price = '$12,550.50';
+  const price = '$558.50';
   const [showBalance, setShowBalance] = useState(true);  //show balance
   return (
     <View style={styles.container}>

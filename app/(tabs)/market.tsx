@@ -63,7 +63,7 @@ const Market = () => {
           }
         ]}
       >
-        <Text style={styles.bal}>$12,550.50</Text>
+        <Text style={styles.bal}>$558.50</Text>
         <View style={styles.per}>
           <Ionicons name="arrow-up" size={18} color="#fff" />
           <Text style={styles.percentText}>11.75%</Text>

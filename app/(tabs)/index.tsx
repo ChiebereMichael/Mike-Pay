@@ -30,7 +30,7 @@ export default function Index() {
     iconBackground: "#008AC3",
     iconColor: "#ffffff",
   };
-  const price = '$12,550.50';
+  const price = '$558.50';
   const [showBalance, setShowBalance] = useState(true); 
   const fadeAnim = React.useRef(new Animated.Value(1)).current;
 
